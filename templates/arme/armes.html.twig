@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArmeController!
+{% endblock %}
+
+{% block monTitre %}Liste des armes
+{% endblock %}
+
+{% block body %}
+	{% for arme in armes %}
+		<div class="row">
+			<div
+				class="col-2">
+
+				<!-- |replace permet de remplacer un caractére par un autre  -->
+				<img src="{{asset('images/armes/'~ arme.nom|replace({'é':'e'}) ~ '.png')}}">
+
+			</div>
+			<div class="col">
+				<a href="{{ path('afficher_arme', {'nom' : arme.nom|replace({'é':'e'}) }) }}">
+					{{arme.nom}}
+				</a>
+
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

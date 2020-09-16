@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Arme
+{% endblock %}
+
+{% block monTitre %}
+	Arme
+	{{armes.nom}}
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-2">
+			<img src="{{asset('images/armes/'~ armes.nom|replace({'é':'e'}) ~ '.png')}}">
+		</div>
+		<div class="col">
+			<div>
+				{{armes.description}}
+			</div>
+			<div>
+				{{armes.degat}}
+			</div>
+		</div>
+	</div>
+{% endblock %}
